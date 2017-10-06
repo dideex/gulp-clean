@@ -1,5 +1,8 @@
+//_____________ INPORTS
+// @import _fonts
+// @import materialize/materialize
+
 //_____________ FONTS
-// @import fonts
 $regular: Roboto
 $rale: Raleway
 $awe: fontawesome
@@ -35,6 +38,16 @@ input:hover, input:focus, a:focus
 	outline: none
 header, section, footer
 	margin: 80px 0
+
+
+//_____________ B U T T O N S
+.btn
+	@extend .btn
+	@extend .waves-light
+	@extend .cyan
+	background-color: $accent
+	&:hover
+		background-color: darken($accent,10)
 //_____________ T O P __  H E A D
 
 //_____________ H E A D E R

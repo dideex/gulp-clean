@@ -13,11 +13,12 @@ var gulp   = require("gulp"),
 gulp.task("lib:js",function(){
 	return gulp.src([
 			"app/libs/jquery/dist/jquery.min.js",
+			"app/libs/materialize/materialize.min.js",
 			// "app/libs/bootstrap/dist/js/bootstrap.min.js",
 			// "app/libs/vegas/dist/vegas.min.js",
-			"app/libs/owl.carousel/dist/owl.carousel.min.js",
-			"app/libs/waypoints/lib/noframework.waypoints.min.js",
-			"app/libs/magnific-popup/dist/jquery.magnific-popup.min.js"
+			// "app/libs/owl.carousel/dist/owl.carousel.min.js",
+			// "app/libs/waypoints/lib/noframework.waypoints.min.js",
+			// "app/libs/magnific-popup/dist/jquery.magnific-popup.min.js"
 		])
 		.pipe(concat("libs.js"))
 		.pipe(uglify())
@@ -26,10 +27,11 @@ gulp.task("lib:js",function(){
 
 gulp.task("lib:css",["sass"], function(){
 	return gulp.src([
-		"app/libs/magnific-popup/dist/magnific-popup.css",
-		"app/libs/owl.carousel/dist/assets/owl.carousel.min.css",
+		// "app/libs/magnific-popup/dist/magnific-popup.css",
+		// "app/libs/owl.carousel/dist/assets/owl.carousel.min.css",
 		// "app/libs/vegas/dist/vegas.min.css",
-		"app/libs/font-awesome/css/font-awesome.css",
+		// "app/libs/font-awesome/css/font-awesome.css",
+		// "app/libs/materialize/ghpages-materialize.css",
 		// "app/libs/bootstrap/dist/css/bootstrap.css"
 		])
 		.pipe(concat("libs.css"))
