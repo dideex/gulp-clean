@@ -13,6 +13,8 @@ const gulp = require("gulp"),
   cached = require("gulp-cached"),
   debug = require("gulp-debug"),
   newer = require("gulp-newer"),
+  notify = require("gulp-notify"),
+  plumber = require("gulp-plumber"),
   sourcemaps = require("gulp-sourcemaps");
 
 gulp.task("libs:js", function() {
@@ -53,6 +55,14 @@ gulp.task("libs", ["libs:css", "libs:js"], function() {
 gulp.task("sass", function() {
   return gulp
     .src("sass/*.sass")
+    .pipe(
+      plumber({
+        errorHandler: notify.onError(err => ({
+          title: "Sass",
+          message: err.message
+        }))
+      })
+    )
     .pipe(cached("sass"))
     .pipe(sourcemaps.init())
     .pipe(sass())
