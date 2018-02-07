@@ -15,6 +15,7 @@ const gulp = require("gulp"),
   newer = require("gulp-newer"),
   notify = require("gulp-notify"),
   plumber = require("gulp-plumber"),
+  babel = require("gulp-babel"),
   sourcemaps = require("gulp-sourcemaps");
 
 gulp.task("libs:js", function() {
@@ -72,6 +73,25 @@ gulp.task("sass", function() {
     .pipe(browser.reload({ stream: true }));
 });
 
+gulp.task("js", cb =>
+  gulp
+    .src("js/main.js")
+    .pipe(
+      plumber({
+        errorHandler: notify.onError(err => ({
+          title: "Js",
+          message: err.message
+        }))
+      })
+    )
+    .pipe(cached("js"))
+    .pipe(sourcemaps.init())
+    .pipe(babel())
+    .pipe(concat("main.min.js"))
+    .pipe(sourcemaps.write("."))
+    .pipe(gulp.dest("js"))
+);
+
 gulp.task("sass:stream", function() {
   return sassruby("sass", { sourcemap: true })
     .on("error", function(err) {
@@ -95,10 +115,10 @@ gulp.task("browser", function() {
   });
 });
 
-gulp.task("watch", ["browser", "sass"], function() {
+gulp.task("watch", ["browser", "sass", "js"], function() {
   gulp.watch("sass/**/*.sass", ["sass"]);
   gulp.watch("*.html", browser.reload);
-  gulp.watch("js/**/*.js", browser.reload);
+  gulp.watch("js/**/*.js", ["js"]);
 });
 
 gulp.task("watch:dist", ["build", "browser"], function() {
