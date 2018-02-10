@@ -90,6 +90,7 @@ gulp.task("js", cb =>
     .pipe(concat("main.min.js"))
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest("js"))
+    .pipe(browser.reload({ stream: true }))
 );
 
 gulp.task("sass:stream", function() {
