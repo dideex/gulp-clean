@@ -16,6 +16,8 @@ const gulp = require("gulp"),
   notify = require("gulp-notify"),
   plumber = require("gulp-plumber"),
   babel = require("gulp-babel"),
+  pug = require("gulp-pug"),
+  rename = require("gulp-rename"),
   sourcemaps = require("gulp-sourcemaps");
 
 gulp.task("libs:js", function() {
@@ -116,10 +118,27 @@ gulp.task("browser", function() {
   });
 });
 
+gulp.task("pug", cb =>
+  gulp
+    .src("*.pug")
+    .pipe(
+      plumber({
+        errorHandler: notify.onError(err => ({
+          title: "Js",
+          message: err.message
+        }))
+      })
+    )
+    .pipe(cached("pug"))
+    .pipe(pug())
+    .pipe(gulp.dest("./"))
+);
+
 gulp.task("watch", ["browser", "sass", "js"], function() {
   gulp.watch("sass/**/*.sass", ["sass"]);
   gulp.watch("*.html", browser.reload);
   gulp.watch("js/**/*.js", ["js"]);
+  gulp.watch("*.pug", ["pug"]);
 });
 
 gulp.task("watch:dist", ["build", "browser"], function() {

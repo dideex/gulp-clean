@@ -34,5 +34,8 @@
     "gulp-uglifyjs": "^0.6.2",
     "imagemin-gifsicle": "^5.1.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "gulp-pug": "^3.3.0",
+    "gulp-rename": "^1.2.2"
+  }
 }
