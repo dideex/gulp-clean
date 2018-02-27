@@ -18,6 +18,7 @@ const gulp = require("gulp"),
   babel = require("gulp-babel"),
   pug = require("gulp-pug"),
   rename = require("gulp-rename"),
+  kraken = require("gulp-kraken"),
   sourcemaps = require("gulp-sourcemaps");
 
 gulp.task("libs:js", function() {
@@ -118,45 +119,73 @@ gulp.task("browser", function() {
   });
 });
 
+gulp.task("browser:dist", function() {
+  browser({
+    server: {
+      baseDir: "dist"
+    },
+    notify: false
+  });
+});
+
 gulp.task("pug", cb =>
   gulp
-    .src("*.pug")
+    .src("index.pug")
     .pipe(
       plumber({
         errorHandler: notify.onError(err => ({
-          title: "Js",
+          title: "Pug",
           message: err.message
         }))
       })
     )
-    .pipe(cached("pug"))
+    // .pipe(cached("pug"))
     .pipe(pug())
     .pipe(gulp.dest("./"))
 );
 
-gulp.task("watch", ["browser", "sass", "js"], function() {
+gulp.task("watch", ["browser", "pug", "sass", "js"], function() {
   gulp.watch("sass/**/*.sass", ["sass"]);
   gulp.watch("*.html", browser.reload);
   gulp.watch("js/**/*.js", ["js"]);
   gulp.watch("*.pug", ["pug"]);
 });
 
-gulp.task("watch:dist", ["build", "browser"], function() {
+gulp.task("watch:dist", ["build", "browser:dist"], function() {
   gulp.watch("dist/*.html", browser.reload);
 });
 
-gulp.task("build", function() {
+gulp.task("kraken", function() {
+  var config = {};
+  try {
+    config = require("./design/kraken.json");
+    // watch for keys in another place ;)
+  } catch (error) {
+    console.log("\n\n\n Missing kraken.json");
+  }
+
+  gulp.src("dist/img/**/*").pipe(kraken(config));
+});
+
+gulp.task("imagemin", function() {
   gulp
     .src("img/**/*")
     .pipe(newer("dist/img"))
     .pipe(image())
     .pipe(gulp.dest("dist/img"));
+})
+
+gulp.task("build", ["imagemin", "kraken"], function() {
   gulp
     .src("css/**/*.css")
     .pipe(csso())
     .pipe(gulp.dest("dist/css"));
   gulp
-    .src("js/**/*")
+    .src("js/main.min.js")
+    .pipe(uglify())
+    .pipe(gulp.dest("dist/js"));
+  gulp
+    .src("js/libs.js")
     .pipe(uglify())
     .pipe(gulp.dest("dist/js"));
   gulp.src("fonts/**/*").pipe(gulp.dest("dist/fonts"));

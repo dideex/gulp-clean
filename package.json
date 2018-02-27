@@ -4,7 +4,8 @@
   "description": "css work",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp watch"
   },
   "author": "didex",
   "license": "ISC",
@@ -29,13 +30,14 @@
     "gulp-notify": "^3.2.0",
     "gulp-plumber": "^1.2.0",
     "gulp-remember": "^1.0.1",
+    "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglifyjs": "^0.6.2",
     "imagemin-gifsicle": "^5.1.0"
   },
   "dependencies": {
-    "gulp-pug": "^3.3.0",
-    "gulp-rename": "^1.2.2"
+    "gulp-kraken": "^0.2.0",
+    "gulp-pug": "^3.3.0"
   }
 }
