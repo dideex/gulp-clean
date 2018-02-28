@@ -3,6 +3,7 @@
 /node_modules
 /lib
 /todo
+/design
 
 # testing
 /coverage
