@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true
+  }
+}
