@@ -19,6 +19,7 @@ const gulp = require("gulp"),
   pug = require("gulp-pug"),
   rename = require("gulp-rename"),
   kraken = require("gulp-kraken"),
+  ts = require("gulp-typescript"),
   sourcemaps = require("gulp-sourcemaps");
 
 gulp.task("libs:js", function() {
@@ -76,9 +77,19 @@ gulp.task("sass", function() {
     .pipe(browser.reload({ stream: true }));
 });
 
+gulp.task("ts", cb =>
+  gulp
+    .src("ts/**/*.ts")
+    .pipe(sourcemaps.init())
+    .pipe(cached("ts"))
+    .pipe(ts({ noImplicitAny: true, outFile: "main.ts.js" }))
+    .pipe(sourcemaps.write("."))
+    .pipe(gulp.dest("js"))
+);
+
 gulp.task("js", cb =>
   gulp
-    .src("js/main.js")
+    .src(["js/main.js", "js/main.ts.js"])
     .pipe(
       plumber({
         errorHandler: notify.onError(err => ({
@@ -91,6 +102,16 @@ gulp.task("js", cb =>
     .pipe(sourcemaps.init())
     .pipe(babel())
     .pipe(concat("main.min.js"))
+    .pipe(sourcemaps.write("."))
+    .pipe(gulp.dest("js"))
+    // .pipe(browser.reload({ stream: true }))
+);
+
+gulp.task("scripts", cb =>
+  gulp
+    .src(["js/main.js", "js/main.ts.js"])
+    .pipe(sourcemaps.init())
+    .pipe(concat("scripts.js"))
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest("js"))
     .pipe(browser.reload({ stream: true }))
@@ -144,10 +165,11 @@ gulp.task("pug", cb =>
     .pipe(gulp.dest("./"))
 );
 
-gulp.task("watch", ["browser", "pug", "sass", "js"], function() {
+gulp.task("watch", ["browser", "pug", "sass", "js", "ts", "scripts"], function() {
   gulp.watch("sass/**/*.sass", ["sass"]);
   gulp.watch("*.html", browser.reload);
-  gulp.watch("js/**/*.js", ["js"]);
+  gulp.watch("js/**/*.js", ["js", "scripts"]);
+  gulp.watch("ts/**/*.ts", ["ts", "scripts"]);
   gulp.watch("*.pug", ["pug"]);
 });
 
@@ -173,7 +195,7 @@ gulp.task("imagemin", function() {
     .pipe(newer("dist/img"))
     .pipe(image())
     .pipe(gulp.dest("dist/img"));
-})
+});
 
 gulp.task("build", ["imagemin", "kraken"], function() {
   gulp
@@ -181,7 +203,7 @@ gulp.task("build", ["imagemin", "kraken"], function() {
     .pipe(csso())
     .pipe(gulp.dest("dist/css"));
   gulp
-    .src("js/main.min.js")
+    .src("js/scripts.js")
     .pipe(uglify())
     .pipe(gulp.dest("dist/js"));
   gulp
@@ -189,7 +211,8 @@ gulp.task("build", ["imagemin", "kraken"], function() {
     .pipe(uglify())
     .pipe(gulp.dest("dist/js"));
   gulp.src("fonts/**/*").pipe(gulp.dest("dist/fonts"));
-  return (gulp
+  return (
+    gulp
       .src("*.html")
       // .pipe(htmlmin({
       // 		collapseWhitespace: "true",
@@ -206,5 +229,6 @@ gulp.task("build", ["imagemin", "kraken"], function() {
       // 		useShortDoctype: "true",
       // 		collapseBooleanAttributes: "true"
       // }))
-      .pipe(gulp.dest("dist")) );
+      .pipe(gulp.dest("dist"))
+  );
 });

@@ -38,6 +38,8 @@
   },
   "dependencies": {
     "gulp-kraken": "^0.2.0",
-    "gulp-pug": "^3.3.0"
+    "gulp-pug": "^3.3.0",
+    "gulp-typescript": "^4.0.2",
+    "typescript": "^2.8.1"
   }
 }
