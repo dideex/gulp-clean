@@ -80,6 +80,14 @@ gulp.task("sass", function() {
 gulp.task("ts", cb =>
   gulp
     .src("ts/**/*.ts")
+    .pipe(
+      plumber({
+        errorHandler: notify.onError(err => ({
+          title: "Ts",
+          message: err.message
+        }))
+      })
+    )
     .pipe(sourcemaps.init())
     .pipe(cached("ts"))
     .pipe(ts({ noImplicitAny: true, outFile: "main.ts.js" }))
@@ -89,7 +97,7 @@ gulp.task("ts", cb =>
 
 gulp.task("js", cb =>
   gulp
-    .src(["js/main.js", "js/main.ts.js"])
+    .src("js/main.js")
     .pipe(
       plumber({
         errorHandler: notify.onError(err => ({
