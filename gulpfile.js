@@ -117,7 +117,7 @@ gulp.task("js", cb =>
 
 gulp.task("scripts", cb =>
   gulp
-    .src(["js/main/min.js", "js/main.ts.js"])
+    .src(["js/main.min.js", "js/main.ts.js"])
     .pipe(sourcemaps.init())
     .pipe(concat("scripts.js"))
     .pipe(sourcemaps.write("."))
