@@ -207,6 +207,9 @@ gulp.task("imagemin", function() {
 
 gulp.task("build", ["imagemin", "kraken"], function() {
   gulp
+    .src('mail.php')
+    .pipe(gulp.dest("dist"))
+  gulp
     .src("css/**/*.css")
     .pipe(csso())
     .pipe(gulp.dest("dist/css"));
