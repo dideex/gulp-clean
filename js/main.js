@@ -1,2 +1,5 @@
-$(document).ready(function(){
+$(document).ready(function () {
+  ////////////////////////////////////
+  // D I V I D E R
+  ////////////////////////////////////
 });
