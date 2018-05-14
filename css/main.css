@@ -2710,7 +2710,7 @@ a {
   color: inherit;
   text-decoration: none; }
 
-input:hover, input:focus, a:focus {
+input:hover, input:focus, a:focus, button:active, button:focus {
   outline: none; }
 
 .btn-large, .btn {
