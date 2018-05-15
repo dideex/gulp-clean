@@ -1,9 +1,9 @@
 "use strict";
 
 $(document).ready(function () {
-  ////////////////////////////////////
-  // D I V I D E R
-  ////////////////////////////////////
+  /**
+   * D I V I D E R
+   */
 });
 //# sourceMappingURL=main.min.js.map
 
