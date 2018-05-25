@@ -38,7 +38,8 @@ a
 	text-decoration: none
 input:hover, input:focus, a:focus, button:active, button:focus
 	outline: none
-
+p, h1, h2, h3, h4, h5
+	margin: 0
 
 //_____________ B U T T O N S
 .btn
@@ -48,7 +49,60 @@ input:hover, input:focus, a:focus, button:active, button:focus
 	background-color: $accent
 	&:hover
 		background-color: darken($accent,10)
+
+a.btn
+	font-weight: 700
+	font-size: 2.15rem
+	text-transform: uppercase
+	color: $accent
+	border: 2px solid $accent
+	padding: 6px 60px 8px 56px
+	border-radius: 0
+	&:active, &:focus
+		outline: none
+		box-shadow: none
+//_____________ H E A D E R S
+	
 //_____________ T O P __  H E A D
+.fadeOutUp:not(.animated)
+	transform: translate3d(0, -100%, 0)
+
+//_____________ A R R O W S
+.owl-wrap
+	position: relative
+.arrow
+	z-index: 2
+	position: absolute 
+	top: 0
+	bottom: 0
+	width: 44px
+	height: 44px
+	border: 1px solid $accent
+	cursor: pointer
+	margin: auto 0
+	&::after
+		content: ''
+		position: absolute 
+		top: 0
+		bottom: 0
+		right: 0
+		left: 0
+		margin: auto
+		width: 10px
+		height: 10px
+		transform: rotate(45deg)
+.arrow.arrow-next
+	right: -30px
+	&::after
+		border-right: 1px solid $accent
+		border-top: 1px solid $accent
+		right: 5px
+.arrow.arrow-prev
+	left: -30px
+	&::after
+		border-left: 1px solid $accent
+		border-bottom: 1px solid $accent
+		left: 5px
 
 //_____________ H E A D E R
 
