@@ -169,7 +169,7 @@ gulp.task("pug", cb =>
       })
     )
     // .pipe(cached("pug"))
-    .pipe(pug())
+    .pipe(pug({pretty: true}))
     .pipe(gulp.dest("./"))
 );
 
