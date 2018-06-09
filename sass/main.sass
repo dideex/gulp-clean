@@ -1,6 +1,6 @@
 //_____________ INPORTS
 @import _fonts
-@import ./materialize/materialize
+// @import ./materialize/materialize
 // @import ./bootstrap/bootstrap-grid
 
 //_____________ FONTS
@@ -20,6 +20,7 @@ $font-dark: #707070
 html
 	font-size: 10px
 body
+	padding: 10px 15px
 	min-width: 320px
 	position: relative
 	line-height: 1.75
@@ -42,25 +43,24 @@ p, h1, h2, h3, h4, h5
 	margin: 0
 
 //_____________ B U T T O N S
-.btn
-	@extend .btn
-	@extend .waves-light
-	@extend .cyan
-	background-color: $accent
-	&:hover
-		background-color: darken($accent,10)
-
 a.btn
-	font-weight: 700
-	font-size: 2.15rem
-	text-transform: uppercase
-	color: $accent
-	border: 2px solid $accent
-	padding: 6px 60px 8px 56px
-	border-radius: 0
+	padding: .3em .8em
+	font-size: 1.25rem
+	color: white
+	border: 1px solid rgba(0,0,0,.1)
+	background: #58a linear-gradient(hsla(0,0%,100%,.2), transparent)
+	box-shadow: 0 .05em .25em rgba(0,0,0,.5)
+	text-shadow: 0 -.05em .05em rgba(0,0,0,.5)
+	border-radius: .2em
+	height: auto
+	line-height: 1.5
 	&:active, &:focus
 		outline: none
 		box-shadow: none
+a.btn.ok
+	background-color: #c00
+a.btn.cancel
+	background-color: #6b0
 //_____________ H E A D E R S
 	
 //_____________ T O P __  H E A D
