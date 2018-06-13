@@ -128,6 +128,16 @@ a.btn {
   a.btn:hover {
     background-color: #b63a0d; }
 
+legend {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background-color: #ff00ff;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  line-height: 48px;
+  text-align: center; }
+
 .fadeOutUp:not(.animated) {
   -webkit-transform: translate3d(0, -100%, 0);
           transform: translate3d(0, -100%, 0); }
