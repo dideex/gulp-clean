@@ -68,7 +68,7 @@ gulp.task("sass", function() {
         }))
       })
     )
-    .pipe(cached("sass"))
+    // .pipe(cached("sass"))
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(autoprx(["last 15 versions", "> 1%"], { cascade: true }))
