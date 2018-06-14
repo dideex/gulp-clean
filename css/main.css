@@ -96,6 +96,16 @@ legend {
   src: url("../fonts/fontawesome-webfont.eot");
   src: url("../fonts/fontawesome-webfont.eot") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2") format("woff2"), url("../fonts/fontawesome-webfont.woff") format("woff"), url("../fonts/fontawesome-webfont.ttf") format("truetype"), url("../fonts/fontawesome-webfont.svg#fontawesome-webfont") format("svg"); }
 
+legend {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background-color: #ff00ff;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  line-height: 48px;
+  text-align: center; }
+
 html {
   font-size: 10px; }
 
@@ -104,7 +114,7 @@ body {
   font-family: Raleway;
   color: #363636; }
 
-.containercontainer {
+.container {
   max-width: 1200px; }
 
 a.btn {
@@ -127,16 +137,6 @@ a.btn {
             box-shadow: none; }
   a.btn:hover {
     background-color: #b63a0d; }
-
-legend {
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  background-color: #ff00ff;
-  -webkit-border-radius: 50%;
-          border-radius: 50%;
-  line-height: 48px;
-  text-align: center; }
 
 .fadeOutUp:not(.animated) {
   -webkit-transform: translate3d(0, -100%, 0);
