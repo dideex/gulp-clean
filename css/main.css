@@ -109,6 +109,30 @@ legend {
   line-height: 48px;
   text-align: center; }
 
+.grid {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
+  .grid > * {
+    -webkit-flex-basis: 15%;
+        -ms-flex-preferred-size: 15%;
+            flex-basis: 15%;
+    max-width: 15%;
+    margin-bottom: 2vw; }
+  .grid > * {
+    background-color: #f0f;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 700; }
+
 html {
   font-size: 10px; }
 

@@ -20,3 +20,13 @@
         padding: #{$top * .1}rem  #{$left * .1}rem
       @else
         padding: #{$top*.1}rem
+
+// Generate flexable grid
+@mixin flex-grid ($count, $margin)
+  display: flex
+  justify-content: space-between
+  flex-wrap: wrap
+  & > *
+    flex-basis: ((100% - (($count - 1) * $margin)) / $count)
+    max-width: ((100% - (($count - 1) * $margin)) / $count)
+    margin-bottom: #{$margin}vw

@@ -23,6 +23,13 @@ h1
 	@include padding(30, 10, 20, 40)
 legend
 	@include circle(50px, #ff00ff)
+.grid
+	@include flex-grid(6, 2)
+	& > *
+		background-color: #f0f
+		color: #ffffff
+		text-align: center
+		font-weight: 700
 html
 	font-size: 10px
 body
