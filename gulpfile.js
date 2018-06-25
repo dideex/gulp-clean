@@ -6,18 +6,18 @@ const gulp = require("gulp"),
   // gulpcopy = require("gulp-copy"),
   image = require("gulp-imagemin"),
   uglify = require("gulp-uglifyjs"),
-  htmlmin = require("gulp-htmlmin"),
+  // htmlmin = require("gulp-htmlmin"),
   autoprx = require("gulp-autoprefixer"),
   browser = require("browser-sync"),
-  remember = require("gulp-remember"),
+  // remember = require("gulp-remember"),
   cached = require("gulp-cached"),
-  debug = require("gulp-debug"),
+  // debug = require("gulp-debug"),
   newer = require("gulp-newer"),
   notify = require("gulp-notify"),
   plumber = require("gulp-plumber"),
   babel = require("gulp-babel"),
   pug = require("gulp-pug"),
-  rename = require("gulp-rename"),
+  // rename = require("gulp-rename"),
   kraken = require("gulp-kraken"),
   ts = require("gulp-typescript"),
   sourcemaps = require("gulp-sourcemaps");
@@ -25,8 +25,12 @@ const gulp = require("gulp"),
 gulp.task("libs:js", function() {
   return gulp
     .src([
-      "lib/jquery/dist/jquery.min.js",
-      "lib/materialize/materialize.min.js"
+      "js/libs/jquery.js",
+      "js/libs/magnificPopup.js",
+      "js/libs/owlCarousel.js",
+      "js/libs/bootstrap/tab.js",
+      // "lib/jquery/dist/jquery.min.js",
+      // "lib/materialize/materialize.min.js"
       // "lib/bootstrap/dist/js/bootstrap.min.js",
       // "lib/vegas/dist/vegas.min.js",
       // "lib/owl.carousel/dist/owl.carousel.min.js",
@@ -35,7 +39,7 @@ gulp.task("libs:js", function() {
     ])
     .pipe(concat("libs.js"))
     .pipe(uglify())
-    .pipe(gulp.dest("js"));
+    .pipe(gulp.dest("js/src"));
 });
 
 gulp.task("libs:css", ["sass"], function() {
@@ -92,12 +96,12 @@ gulp.task("ts", cb =>
     .pipe(cached("ts"))
     .pipe(ts({ noImplicitAny: true, outFile: "main.ts.js" }))
     .pipe(sourcemaps.write("."))
-    .pipe(gulp.dest("js"))
+    .pipe(gulp.dest("js/src"))
 );
 
 gulp.task("js", cb =>
   gulp
-    .src("js/main.js")
+    .src("js/src/main.js")
     .pipe(
       plumber({
         errorHandler: notify.onError(err => ({
@@ -111,13 +115,13 @@ gulp.task("js", cb =>
     .pipe(babel())
     .pipe(concat("main.min.js"))
     .pipe(sourcemaps.write("."))
-    .pipe(gulp.dest("js"))
+    .pipe(gulp.dest("js/src"))
     // .pipe(browser.reload({ stream: true }))
 );
 
 gulp.task("scripts", cb =>
   gulp
-    .src(["js/main.min.js", "js/main.ts.js"])
+    .src(["js/src/libs.js","js/src/main.min.js", "js/src/main.ts.js"])
     .pipe(sourcemaps.init())
     .pipe(concat("scripts.js"))
     .pipe(sourcemaps.write("."))
@@ -175,6 +179,7 @@ gulp.task("pug", cb =>
 
 gulp.task("watch", ["browser", "pug", "sass", "js", "ts", "scripts"], function() {
   gulp.watch("sass/**/*.sass", ["sass"]);
+  gulp.watch("sass/**/*.scss", ["sass"]);
   gulp.watch("*.html", browser.reload);
   gulp.watch("js/**/*.js", ["js", "scripts"]);
   gulp.watch("ts/**/*.ts", ["ts", "scripts"]);
@@ -217,10 +222,10 @@ gulp.task("build", ["imagemin", "kraken"], function() {
     .src("js/scripts.js")
     .pipe(uglify())
     .pipe(gulp.dest("dist/js"));
-  gulp
-    .src("js/libs.js")
-    .pipe(uglify())
-    .pipe(gulp.dest("dist/js"));
+  // gulp
+  //   .src("js/libs.js")
+  //   .pipe(uglify())
+  //   .pipe(gulp.dest("dist/js"));
   gulp.src("fonts/**/*").pipe(gulp.dest("dist/fonts"));
   return (
     gulp
