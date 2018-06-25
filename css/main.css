@@ -66,6 +66,9 @@ legend {
   border: 0;
   padding: 0; }
 
+label {
+  cursor: pointer; }
+
 /* Magnific Popup CSS */
 .mfp-bg {
   top: 0;
