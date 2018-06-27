@@ -511,6 +511,12 @@ body {
 
 .container {
   max-width: 1200px; }
+  @media screen and (max-width: 768px) {
+    .container {
+      max-width: 800px; } }
+  @media screen and (max-width: 576px) {
+    .container {
+      max-width: 320px; } }
 
 a.btn {
   font-weight: 700;

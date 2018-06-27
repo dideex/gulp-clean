@@ -12,6 +12,11 @@ $regular: Roboto
 $rale: Raleway
 $awe: fontawesome
 
+//_____________ RWD
+$retina: 1400px
+$tablet: 768px
+$mobile: 576px
+
 //_____________ CONST
 $accent: #e54911
 $cyan: #e6eff6
@@ -43,6 +48,11 @@ body
 	color: $font
 .container
 	max-width: 1200px
+	@media screen and (max-width: $tablet)
+		max-width: 800px
+	@media screen and (max-width: $mobile)
+		max-width: 320px
+
 //_____________ I N H E R I T S
 %btn
 	font-weight: 700
