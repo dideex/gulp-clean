@@ -41,9 +41,13 @@ legend
 		text-align: center
 		font-weight: 700
 html
-	font-size: 10px
+	/*
+	* fluid font size
+	*/
+	font-size: calc(14px + (18 - 14) * (100vw - 320px) / (1800 - 320))
+	// font-size: 10px
 body
-	font-size: 1.5rem
+	// font-size: 1.5rem
 	font-family: $rale
 	color: $font
 .container
@@ -56,7 +60,7 @@ body
 //_____________ I N H E R I T S
 %btn
 	font-weight: 700
-	font-size: 2.15rem
+	font-size: 1rem
 	text-transform: uppercase
 	color: $accent
 	cursor: pointer
