@@ -20,6 +20,7 @@ const gulp = require('gulp'),
   // rename = require("gulp-rename"),
   kraken = require('gulp-kraken'),
   ts = require('gulp-typescript'),
+  realFavicon = require ('gulp-real-favicon'),
   sourcemaps = require('gulp-sourcemaps')
 
 gulp.task('libs:js', function() {
@@ -267,3 +268,66 @@ gulp.task('build', ['imagemin', 'kraken'], function() {
       .pipe(gulp.dest('dist'))
   )
 })
+
+const FAVICON_DATA_FILE = 'faviconData.json'
+gulp.task('favicon', function(done) {
+	realFavicon.generateFavicon({
+		masterPicture: './img/favicon/assets/favicon.png',
+		dest: './img/favicon',
+		iconsPath: '/',
+		design: {
+			ios: {
+				pictureAspect: 'noChange',
+				assets: {
+					ios6AndPriorIcons: false,
+					ios7AndLaterIcons: false,
+					precomposedIcons: false,
+					declareOnlyDefaultIcon: true
+				}
+			},
+			desktopBrowser: {},
+			windows: {
+				pictureAspect: 'noChange',
+				backgroundColor: '#9f00a7',
+				onConflict: 'override',
+				assets: {
+					windows80Ie10Tile: false,
+					windows10Ie11EdgeTiles: {
+						small: false,
+						medium: true,
+						big: false,
+						rectangle: false
+					}
+				}
+			},
+			androidChrome: {
+				pictureAspect: 'noChange',
+				themeColor: '#ffffff',
+				manifest: {
+					display: 'standalone',
+					orientation: 'notSet',
+					onConflict: 'override',
+					declared: true
+				},
+				assets: {
+					legacyIcon: false,
+					lowResolutionIcons: false
+				}
+			},
+			safariPinnedTab: {
+				pictureAspect: 'silhouette',
+				themeColor: '#5bbad5'
+			}
+		},
+		settings: {
+			scalingAlgorithm: 'Mitchell',
+			errorOnImageTooSmall: false,
+			readmeFile: false,
+			htmlCodeFile: false,
+			usePathAsIs: false
+		},
+		markupFile: FAVICON_DATA_FILE
+	}, function() {
+		done();
+	});
+});
