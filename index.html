@@ -14,12 +14,382 @@
     <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#da532c">
     <link rel="stylesheet" href="css/main.css">
   </head>
-  <body><a class="btn-floating btn-large waves-effect waves-light red" href="#" id="test">test</a><a class="waves-effect btn" href="#" id="test">test</a>
-    <legend>test</legend>
-    <h1>Padding test</h1>
-    <div class="container">
-      <div class="background"></div>
-    </div>
+  <body>
+    <section class="fadeOutUp nav__top" id="sticky">
+      <div class="header__top-mob container">
+        <div class="row justify-content-between align-items-center">
+          <div class="col-3 header__top-mob--menu"><a href="#mob-nav"><img src="img/icons/menu.png" alt=""></a></div>
+          <div class="col-6 header__top-mob--logo"><img src="img/logo.png" alt=""></div>
+          <div class="col-3"><a href="https://api.whatsapp.com/send?phone=+79140315610"><img src="img/icons/mob-wa.png" alt=""></a><a href="tel:84132617300"><img src="img/icons/phone-mob.png" alt=""></a></div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row align-items-center justify-content-between">
+          <div class="nav__top--logo"><img src="img/logo.png" alt=""></div>
+          <nav class="nav__items row justify-content-end"><a class="nav__top--item" href="#services">Услуги</a><a class="nav__top--item" href="#contacts">О компании</a><a class="nav__top--item" href="#feedback">Отзывы</a><a class="nav__top--item" href="#contacts">Контакты</a><a class="nav__top--item" href="#stuff">Сотрудники</a><a class="nav__top--item" href="#shop">Магазин</a></nav><a class="nav__top--wa" href="https://api.whatsapp.com/send?phone=+79140315610">Написать<br> нам в</a><a class="nav__top--phone" href="tel:84132617300">61 73 00</a>
+        </div>
+      </div>
+    </section>
+    <header class="header">
+      <section class="container header__top-mob">
+        <div class="row justify-content-between align-items-center">
+          <div class="col-3 header__top-mob--menu"><a href="#mob-nav"><img src="img/icons/menu.png" alt=""></a></div>
+          <nav class="header__top-mob--nav mfp-hide" id="mob-nav"><a href="#"><img src="img/logo.png" alt=""></a><a class="header__top-mob--nav-link" href="#services">Услуги</a><a class="header__top-mob--nav-link" href="#contacts">О компании</a><a class="header__top-mob--nav-link" href="#feedback">Отзывы</a><a class="header__top-mob--nav-link" href="#contacts">Контакты</a><a class="header__top-mob--nav-link" href="#stuff">Сотрудники</a><a class="header__top-mob--nav-link" href="#shop">Магазин</a><a class="nav__top--phone" href="tel:84132617300">61 73 00</a><a class="nav__top--wa" href="https://api.whatsapp.com/send?phone=+79140315610">Написать<br> нам в</a></nav>
+          <div class="col-6 header__top-mob--logo"><img src="img/logo.png" alt=""></div>
+          <div class="col-3"><a href="https://api.whatsapp.com/send?phone=+79140315610"><img src="img/icons/mob-wa.png" alt=""></a><a href="tel:84132617300"><img src="img/icons/phone-mob.png" alt=""></a></div>
+        </div>
+      </section>
+      <section class="container header__top">
+        <div class="row align-items-center">
+          <div class="col-lg-9 col-md-9 col-sm-9 col-8">
+            <p><strong>Подпишитесь</strong> на наши аккаунты в социальных сетях и получите скидку до <strong>10%</strong> на все услуги</p>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-3 col-4"><a class="btn" href="#popup-promotion">Подробнее</a></div>
+        </div>
+      </section>
+      <section class="container header__contacts">
+        <div class="row justify-content-between align-items-center">
+          <div class="header-logo"><img src="img/logo.png" alt=""></div>
+          <div class="header__contacts--content"><a class="header__contacts--phone" href="tel:84132617300">61 73 00 </a>
+            <p> <span>ул. Набережная реки Магаданки, 12А </span><br><span>ул. Кольцевая, 30</span></p>
+          </div>
+          <div class="header__contacts--wa"><a href="https://api.whatsapp.com/send?phone=+79140315610">Написать <br>нам в </a></div>
+        </div>
+      </section>
+      <section class="container header__nav">
+        <nav class="row"><a class="header__nav--item" href="#services">Услуги</a><a class="header__nav--item" href="#benefits">О компании</a><a class="header__nav--item" href="#feedback">Отзывы</a><a class="header__nav--item" href="#contacts">Контакты</a><a class="header__nav--item" href="#stuff">Сотрудники</a><a class="header__nav--item" href="#shop">Магазин</a></nav>
+      </section>
+      <section class="container header__action">
+        <div class="row header__action--header">
+          <h1>Счастливые часы<br><strong>скидка 15%</strong><br>на ремонт</h1>
+        </div>
+        <div class="row header__action--desc justify-content-between">
+          <div class="col-lg-6 col-md-6"><i>Клиенту, сдавшему машину в автотехцентр с понедельника по четверг с 12:00 до 15:00, предоставляется скидка 15% на ремонтные работы. </i></div>
+          <div class="col-lg-5 col-md-5"><a class="btn" href="#popup-header">Подробнее</a></div>
+        </div>
+      </section>
+      <section class="container header__slider">
+        <h2>Акции</h2>
+        <div class="owl-wrap">
+          <div class="arrow arrow-next" id="arrow-next"></div>
+          <div class="arrow arrow-prev" id="arrow-prev"></div>
+          <div class="owl-carousel" id="header-slider">
+            <div class="item">
+              <h4>Бесплатная диагностика автомобиля по 21 пункту</h4>
+              <div class="hidden"><a class="btn" href="#popup-versta" data-mfp-src="#popup-versta1">Подробнее</a></div><img src="img/header_slider/1.jpg" alt="">
+            </div>
+            <div class="item">
+              <h4>Бесплатная замена антифриза</h4>
+              <div class="hidden"><a class="btn" href="#popup-versta" data-mfp-src="#popup-versta2">Подробнее</a></div><img src="img/header_slider/2.jpg" alt="">
+            </div>
+            <div class="item">
+              <h4>Бесплатная замена масла ДВС</h4>
+              <div class="hidden"><a class="btn" href="#popup-versta" data-mfp-src="#popup-versta3">Подробнее</a></div><img src="img/header_slider/3.jpg" alt="">
+            </div>
+            <div class="item">
+              <h4>Бесплатная проверка «Развал – схождения»</h4>
+              <div class="hidden"><a class="btn" href="#popup-versta" data-mfp-src="#popup-versta4">Подробнее</a></div><img src="img/header_slider/4.jpg" alt="">
+            </div>
+            <div class="item">
+              <h4>«Счастливые часы»</h4>
+              <div class="hidden"><a class="btn" href="#popup-versta" data-mfp-src="#popup-versta5">Подробнее</a></div><img src="img/header_slider/5.jpg" alt="">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="header__services" id="services">
+        <h2>Услуги</h2>
+        <div class="container">
+          <div class="row justify-content-between">
+            <div class="col-lg-2 col-md-2 col-sm-6 col-6"><img src="img/services/1.png" alt="">
+              <h3>Слесарный ремонт</h3>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-6 col-6"><img src="img/services/2.png" alt="">
+              <h3>Шиномотаж</h3>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-6 col-6"><img src="img/services/3.png" alt="">
+              <h3>Диагностика</h3>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-6 col-6"><img src="img/services/4.png" alt="">
+              <h3>Развал - схождения</h3>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-6 col-6"><img src="img/services/5.png" alt="">
+              <h3>Техническое обслуживание</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+    </header>
+    <main class="main">
+      <section class="main__benefits" id="benefits">
+        <h2>Мы используем передовое оборудование</h2>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-6 main__benefit">
+              <h3>Замена масла </h3>
+              <div class="hidden">
+                <h4>Замена масла в АКПП</h4>
+                <p>Замена масла в автоматической коробке перемены передач (АКПП) выполняется на аппарате HESHBON.</p>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-6 main__benefit">
+              <h3>Замена жидкости в гидроусилителе руля</h3>
+              <div class="hidden">
+                <h4>Замена жидкости в гидроусилителе руля</h4>
+                <p>Замена жидкости в гидроусилителе руля выполняется в соответствии с рекомендациями завода-производителя при помощи аппарата "Темп SL-120".</p>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-6 main__benefit">
+              <h3>Замена антифриза</h3>
+              <div class="hidden">
+                <h4>Замена антифриза</h4>
+                <p>Замена антифриза выполняется в соответствии с рекомендациями завода-производителя при помощи аппарата IMPACT.</p>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-6 main__benefit">
+              <h3>Проточка тормозного диска</h3>
+              <div class="hidden">
+                <h4>Проточка тормозного диска</h4>
+                <p>Проточка тормозного диска выполняется на стенде PRO-CUT 9.0. PRO-CUT - это компьютерный автомат для восстановления заводской геометрии вращения тормозного диска на ступице автомобиля.</p>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12 main__benefit">
+              <h3>Регулировка «Развал–схождения»</h3>
+              <div class="hidden">
+                <h4>Регулировка «Развал–схождения»</h4>
+                <p>Регулировка «Развал–схождения» выполняется на стенде HUNTER.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="main__wating-room">
+        <h2>Зал ожидания</h2>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-md-6"><img src="img/wating_room.jpg" alt=""></div>
+            <div class="col-lg-6 col-md-6">
+              <p>Пока Ваш автомобиль находится на обслуживании, вы можете скоротать время в уютной комнате ожидания.</p>
+              <p>Для Вас всегда: горячий чай, кофе, телевизор, бесплатный Wi-Fi</p>
+              <p> Если Вы с ребенком - для него есть детский уголок с набором раскрасок и карандашей.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="main__shop" id="shop">
+        <h2>Магазины</h2>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-6"><img src="img/shop1.jpg" alt="">
+              <p>В нашем Автотехцентре Вы можете не только обслужить свой автомобиль, но и приобрести различные товары для Вашего авто.</p>
+              <p>У нас всегда в большом ассортименте:</p>
+              <ul>
+                <li>Масла, смазки, охлаждающие и тормозные жидкости</li>
+                <li>Аккумуляторы, клеммы</li>
+                <li>Автохимия</li>
+                <li>Автозапчасти</li>
+                <li>Инструмент автомобильный</li>
+                <li>Гайки, шпильки, болты разные</li>
+                <li>Лампы, фонари, предохранители</li>
+                <li>Органайзеры, огнетушители, знаки аварийной остановки</li>
+                <li>Датчики давления в шинах для легковых и грузовых автомобилей</li>
+                <li>Фильтры масляные, воздушные и топливные</li>
+                <li>Чехлы, ковры, оплетки на руль</li>
+              </ul>
+              <p>Принимаем заказы на поставку запчастей</p>
+              <address>ул. Набережная реки Магаданки, 12А</address>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-6"><img src="img/shop2.jpg" alt="">
+              <p>В нашем Автотехцентре Вы можете не только обслужить свой автомобиль, но и приобрести различные товары для Вашего авто.</p>
+              <p>У нас всегда в большом ассортименте:</p>
+              <ul>
+                <li>Масла, смазки, охлаждающие и тормозные жидкости</li>
+                <li>Аккумуляторы, клеммы</li>
+                <li>Автохимия</li>
+                <li>Автозапчасти</li>
+                <li>Инструмент автомобильный и строительный</li>
+                <li>Гайки, шпильки, болты разные</li>
+                <li>Лампы, фонари, предохранители</li>
+                <li>Органайзеры, огнетушители, знаки аварийной остановки</li>
+                <li>Датчики давления в шинах для легковых и грузовых автомобилей</li>
+                <li>Фильтры масляные, воздушные и топливные</li>
+                <li>Ковры, оплетки на руль</li>
+              </ul>
+              <p>Принимаем заказы на поставку запчастей</p>
+              <address>ул. Кольцевая, 30</address>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="main__stuff" id="stuff">
+        <h2>Сотрудники</h2>
+        <div class="container">
+          <div class="owl-wrap">
+            <div class="arrow-w arrow-w-next" id="arrow-w-next-stuff"></div>
+            <div class="arrow-w arrow-w-prev" id="arrow-w-prev-stuff"></div>
+            <div class="owl-carousel" id="stuff-slider">
+              <div class="item"><img src="img/stuff/gorelov.jpg" alt="">
+                <h3>Николай Горелов</h3>
+                <p>Автомеханик опыт работы более 8 лет</p>
+              </div>
+              <div class="item"><img src="img/stuff/krainichenko.jpg" alt="">
+                <h3>Андрей Крайниченко</h3>
+                <p>Автомеханик опыт работы более 7 лет</p>
+              </div>
+              <div class="item"><img src="img/stuff/kuzmin.jpg" alt="">
+                <h3>Артем Кузьмин</h3>
+                <p>Продавец-консультант  опыт работы более 1 года</p>
+              </div>
+              <div class="item"><img src="img/stuff/pugachev.jpg" alt="">
+                <h3>Сергей Пугачев</h3>
+                <p>Продавец-консультант  опыт работы более 6 лет</p>
+              </div>
+              <div class="item"><img src="img/stuff/rukovoditel.jpg" alt="">
+                <h3>Сергей Утемов</h3>
+                <p>Руководитель</p>
+              </div>
+              <div class="item"><img src="img/stuff/sartakov.jpg" alt="">
+                <h3>Максим Сартаков</h3>
+                <p>Автомеханик опыт работы более 8 лет</p>
+              </div>
+              <div class="item"><img src="img/stuff/shaheev.jpg" alt="">
+                <h3>Рамиль Шайхеев</h3>
+                <p>Мастер – приемщик опыт работы более 5 лет</p>
+              </div>
+              <div class="item"><img src="img/stuff/sklyarov.jpg" alt="">
+                <h3>Михаил Скляров</h3>
+                <p>Автомеханик опыт работы более 15 лет</p>
+              </div>
+              <div class="item"><img src="img/stuff/sorokachuk.jpg" alt="">
+                <h3>Алексей Сорокачук</h3>
+                <p>Продавец-консультант опыт работы более 4 лет</p>
+              </div>
+              <div class="item"><img src="img/stuff/yanovskii.jpg" alt="">
+                <h3>Александр Яновский</h3>
+                <p>Автомеханик опыт работы более 4 лет</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="section main__feedback" id="feedback">
+        <h2>Отзывы</h2>
+        <div class="container">
+          <div class="owl-wrap">
+            <div class="arrow-w arrow-w-next" id="arrow-w-next-fb"></div>
+            <div class="arrow-w arrow-w-prev" id="arrow-w-prev-fb"></div>
+            <div class="owl-carousel" id="fb-slider">
+              <div class="item">
+                <div class="main__feedback-item-top">
+                  <div class="main__feedback-item-img"><img src="img/feedback/1.jpg" alt=""></div>
+                  <div class="main__feedback-item-desc">
+                    <h3>Андрей Ростков</h3>
+                    <P>Работают быстро и на совесть, никаких претензий к мастерам нет, все отлично.</P>
+                  </div>
+                </div>
+                <div class="main__feedback-item-bottom">
+                  <div class="main__feedback-item-img"><img src="img/feedback/2.jpg" alt=""></div>
+                  <div class="main__feedback-item-desc">
+                    <h3>Максим Сергеев</h3>
+                    <P>Все понравилось, все качественно и быстро. Рекомендую!</P>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="main__feedback-item-top">
+                  <div class="main__feedback-item-img"><img src="img/feedback/3.jpg" alt=""></div>
+                  <div class="main__feedback-item-desc">
+                    <h3>Дмитрий Васильев</h3>
+                    <P>Все очень понравилось, сделали свою работу быстро и качественно, обязательно посещу этот автосервис в будущем, когда возникнет необходимость.</P>
+                  </div>
+                </div>
+                <div class="main__feedback-item-bottom">
+                  <div class="main__feedback-item-img"><img src="img/feedback/4.jpg" alt=""></div>
+                  <div class="main__feedback-item-desc">
+                    <h3>Вита Медведева</h3>
+                    <P>Помогли быстро и качественно, никаких претензий к работе сервиса не имею.</P>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <section class="footer__contacts">
+        <div id="map"></div>
+        <div class="footer__contacts--content" id="contacts">
+          <h2>Контакты</h2>
+          <p class="subtitle">О компании</p>
+          <p>На сегодняшний день «Автосервис Верста» - это один из самых известных брендов среди автосервисов Магадана. Компания была основана более 15 лет назад и сегодня состоит из 2 станций технического обслуживания, а так же магазина автозапчастей.</p>
+          <p>Наши сотрудники имеют профильное образование и регулярно повышают квалификацию.  За эти годы мы по праву заслужили доверие автовладельцев Магадана. </p>
+          <p class="work-space">Понедельник - Пятница <strong>10:00 - 19:00</strong><br> Суббота <strong>10:00 - 18:00</strong><br> Воскресенье выходной</p>
+          <p class="phone"> <a href="tel:84132617300">61 73 00</a></p>
+          <address>ул. Набережная реки Магаданки, 12А</address>
+          <address>ул. Кольцевая, 30</address>
+        </div>
+      </section>
+      <section class="footer__bottom">
+        <div class="container">
+          <div class="row justify-content-between align-items-center">
+            <div class="col-lg-3 col-md-3"><img src="img/logo.png" alt=""></div>
+            <div class="col-lg-3 col-md-3 footer-social"><a href="#"></a><a href="#"></a><a href="#"></a></div>
+            <div class="col-lg-3 col-md-3 footer-year">
+              <p>2018</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </footer>
+    <section class="popup mfp-hide" id="popup-versta1"><img src="img/logo.png" alt="">
+      <h3>Диагностика автомобиля</h3>
+      <div class="text-wrap">
+        <p>Предлагаем автолюбителям пройти БЕСПЛАТНУЮ ДИАГНОСТИКУ автомобиля по 21 пункту. Сервисные специалисты проведут проверку систем и агрегатов, начиная от лампочек освещения до уровня износа тормозных колодок. И все это совершенно БЕСПЛАТНО. Вы получаете «Диагностический лист» с результатами проверки Вашего автомобиля и рекомендациями от специалиста.</p>
+        <p>Срок проведения акции: с 10.06.18 по 31.06.18. В один день по акции принимаем не более 5 автомобилей</p>
+        <p>Для того, чтобы принять участие в акции, позвоните нам прямо сейчас по телефону <a href="tel:84132617300">61-73-00 </a>и запишитесь на удобное для Вас время.</p>
+      </div><a class="btn popup-close" href="#">Закрыть</a>
+    </section>
+    <section class="popup mfp-hide" id="popup-versta2"><img src="img/logo.png" alt="">
+      <h3>Замена антифриза</h3>
+      <div class="text-wrap">
+        <p>Предлагаем БЕСПЛАТНУЮ ЗАМЕНУ антифриза. Вы платите только за сам антифриз. </p>
+        <p>Срок проведения акции: с 10.06.18 по 31.06.18. В один день по акции принимаем не более 5 автомобилей.</p>
+        <p>Для того, чтобы принять участие в акции, позвоните нам прямо сейчас по телефону <a href="tel:84132617300">61-73-00 </a>и запишитесь на удобное для Вас время.</p>
+      </div><a class="btn popup-close" href="#">Закрыть</a>
+    </section>
+    <section class="popup mfp-hide" id="popup-versta3"><img src="img/logo.png" alt="">
+      <h3>Замена масла в ДВС</h3>
+      <div class="text-wrap">
+        <p>Предлагаем БЕСПЛАТНУЮ ЗАМЕНУ масла. Вы платите только за само масло или привозите свое. Также бесплатно дадим рекомендации о том, когда следует заменить масло повторно, какой маркой лучше воспользоваться, исходя из сезонных требований, марки автомобиля и особенностей его эксплуатации.  </p>
+        <p>Срок проведения акции: с 10.06.18 по 31.06.18. В один день принимаем не более 5 автомобилей.</p>
+        <p>Для того, чтобы принять участие в акции, позвоните нам прямо сейчас по телефону <a href="tel:84132617300">61-73-00 </a>и запишитесь на удобное для Вас время.</p>
+      </div><a class="btn popup-close" href="#">Закрыть</a>
+    </section>
+    <section class="popup mfp-hide" id="popup-versta4"><img src="img/logo.png" alt="">
+      <h3>Замена проверка развал-схождения</h3>
+      <div class="text-wrap">
+        <p>Предлагаем автолюбителям пройти БЕСПЛАТНУЮ ПРОВЕРКУ «Развал-схождения». </p>
+        <p>Срок проведения акции: с 10.06.18 по 31.06.18. В один день принимаем не более 5 автомобилей.</p>
+        <p>Для того, чтобы принять участие в акции, позвоните нам прямо сейчас по телефону <a href="tel:84132617300">61-73-00 </a>и запишитесь на удобное для Вас время.</p>
+      </div><a class="btn popup-close" href="#">Закрыть</a>
+    </section>
+    <section class="popup mfp-hide" id="popup-versta5"><img src="img/logo.png" alt="">
+      <h3>Счастилвые часы</h3>
+      <div class="text-wrap">
+        <p>Клиенту, сдавшему машину в автотехцентр с понедельника по четверг с 12:00 до 15:00, предоставляется скидка 15% на ремонтные работы.</p>
+        <p>Для того, чтобы принять участие в акции, позвоните нам прямо сейчас по телефону <a href="tel:84132617300">61-73-00 </a>и запишитесь на удобное для Вас время.</p>
+      </div><a class="btn popup-close" href="#">Закрыть</a>
+    </section>
+    <section class="popup mfp-hide" id="popup-header"><img src="img/logo.png" alt="">
+      <h3>Счастливые часы на ремонт</h3>
+      <p>Для того, чтобы принять участие в акции, позвоните нам прямо сейчас по телефону <a href="tel:84132617300">61-73-00 </a>и запишитесь на удобное для Вас время.</p><a class="btn popup-close" href="#">Закрыть</a>
+    </section>
+    <section class="popup mfp-hide" id="popup-promotion"><img src="img/logo.png" alt="">
+      <h3>Скидка 10% на все услуги</h3>
+      <p>Если вы подпишитесь на любой наш аккаунт</p>
+      <div class="popup-social"><a href="#">versta49</a><a href="#">versta49</a><a href="#">versta49</a></div><a class="btn popup-close" href="#">Закрыть</a>
+    </section>
     <script src="js/scripts.js" defer></script>
   </body>
 </html>

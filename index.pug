@@ -1,9 +1,386 @@
 
 extends header.pug
 block content
-  a(href="#", id="test", class="btn-floating btn-large waves-effect waves-light red") test
-  a(href="#", id="test", class="waves-effect btn") test
-  legend test
-  h1 Padding test
-  .container
-    .background
+  section.fadeOutUp.nav__top#sticky
+    .header__top-mob.container
+      .row.justify-content-between.align-items-center
+        .col-3.header__top-mob--menu
+          a(href="#mob-nav")
+            img(src="img/icons/menu.png", alt="")
+        .col-6.header__top-mob--logo
+          img(src="img/logo.png", alt="")
+        .col-3
+          a(href="https://api.whatsapp.com/send?phone=+79140315610")
+            img(src="img/icons/mob-wa.png", alt="")
+          a(href="tel:84132617300")
+            img(src="img/icons/phone-mob.png", alt="")
+    .container
+      .row.align-items-center.justify-content-between
+        .nav__top--logo
+          img(src="img/logo.png", alt="")
+        nav.nav__items.row.justify-content-end
+          a.nav__top--item(href="#services") Услуги
+          a.nav__top--item(href="#contacts") О компании
+          a.nav__top--item(href="#feedback") Отзывы
+          a.nav__top--item(href="#contacts") Контакты
+          a.nav__top--item(href="#stuff") Сотрудники
+          a.nav__top--item(href="#shop") Магазин
+        a.nav__top--wa(href="https://api.whatsapp.com/send?phone=+79140315610") Написать<br> нам в
+        a.nav__top--phone(href="tel:84132617300") 61 73 00
+  header.header
+    section.container.header__top-mob
+      .row.justify-content-between.align-items-center
+        .col-3.header__top-mob--menu
+          a(href="#mob-nav")
+            img(src="img/icons/menu.png", alt="")
+        nav.header__top-mob--nav.mfp-hide#mob-nav
+          a(href="#")
+            img(src="img/logo.png", alt="")
+          a.header__top-mob--nav-link(href="#services") Услуги
+          a.header__top-mob--nav-link(href="#contacts") О компании
+          a.header__top-mob--nav-link(href="#feedback") Отзывы
+          a.header__top-mob--nav-link(href="#contacts") Контакты
+          a.header__top-mob--nav-link(href="#stuff") Сотрудники
+          a.header__top-mob--nav-link(href="#shop") Магазин
+          a.nav__top--phone(href="tel:84132617300") 61 73 00
+          a.nav__top--wa(href="https://api.whatsapp.com/send?phone=+79140315610") Написать<br> нам в
+        .col-6.header__top-mob--logo
+          img(src="img/logo.png", alt="")
+        .col-3
+          a(href="https://api.whatsapp.com/send?phone=+79140315610")
+            img(src="img/icons/mob-wa.png", alt="")
+          a(href="tel:84132617300")
+            img(src="img/icons/phone-mob.png", alt="")
+    section.container.header__top
+      .row.align-items-center
+        .col-lg-9.col-md-9.col-sm-9.col-8
+          p <strong>Подпишитесь</strong> на наши аккаунты в социальных сетях и получите скидку до <strong>10%</strong> на все услуги
+        .col-lg-3.col-md-3.col-sm-3.col-4
+          a.btn(href="#popup-promotion") Подробнее
+    section.container.header__contacts
+      .row.justify-content-between.align-items-center
+        .header-logo
+          img(src="img/logo.png", alt="")
+        .header__contacts--content
+          a.header__contacts--phone(href="tel:84132617300") 61 73 00 
+          p 
+            span ул. Набережная реки Магаданки, 12А 
+            br
+            span ул. Кольцевая, 30
+        .header__contacts--wa
+          a(href="https://api.whatsapp.com/send?phone=+79140315610") Написать <br>нам в 
+    section.container.header__nav
+      nav.row
+        a.header__nav--item(href="#services") Услуги
+        a.header__nav--item(href="#benefits") О компании
+        a.header__nav--item(href="#feedback") Отзывы
+        a.header__nav--item(href="#contacts") Контакты
+        a.header__nav--item(href="#stuff") Сотрудники
+        a.header__nav--item(href="#shop") Магазин
+    section.container.header__action
+      .row.header__action--header
+        h1 Счастливые часы<br><strong>скидка 15%</strong><br>на ремонт
+      .row.header__action--desc.justify-content-between
+        .col-lg-6.col-md-6
+          i Клиенту, сдавшему машину в автотехцентр с понедельника по четверг с 12:00 до 15:00, предоставляется скидка 15% на ремонтные работы. 
+        .col-lg-5.col-md-5
+          a.btn(href="#popup-header") Подробнее
+    section.container.header__slider
+      h2 Акции
+      .owl-wrap
+        .arrow.arrow-next#arrow-next
+        .arrow.arrow-prev#arrow-prev
+        .owl-carousel#header-slider
+          .item
+            h4 Бесплатная диагностика автомобиля по 21 пункту
+            .hidden
+              a.btn(href="#popup-versta", data-mfp-src="#popup-versta1") Подробнее
+            img(src="img/header_slider/1.jpg", alt="")
+          .item
+            h4 Бесплатная замена антифриза
+            .hidden
+              a.btn(href="#popup-versta", data-mfp-src="#popup-versta2") Подробнее
+            img(src="img/header_slider/2.jpg", alt="")
+          .item
+            h4 Бесплатная замена масла ДВС
+            .hidden
+              a.btn(href="#popup-versta", data-mfp-src="#popup-versta3") Подробнее
+            img(src="img/header_slider/3.jpg", alt="")
+          .item
+            h4 Бесплатная проверка «Развал – схождения»
+            .hidden
+              a.btn(href="#popup-versta", data-mfp-src="#popup-versta4") Подробнее
+            img(src="img/header_slider/4.jpg", alt="")
+          .item
+            h4 «Счастливые часы»
+            .hidden
+              a.btn(href="#popup-versta", data-mfp-src="#popup-versta5") Подробнее
+            img(src="img/header_slider/5.jpg", alt="")
+    section.header__services#services
+      h2 Услуги
+      .container
+        .row.justify-content-between
+          .col-lg-2.col-md-2.col-sm-6.col-6
+            img(src="img/services/1.png", alt="")
+            h3 Слесарный ремонт
+          .col-lg-2.col-md-2.col-sm-6.col-6
+            img(src="img/services/2.png", alt="")
+            h3 Шиномотаж
+          .col-lg-2.col-md-2.col-sm-6.col-6
+            img(src="img/services/3.png", alt="")
+            h3 Диагностика
+          .col-lg-2.col-md-2.col-sm-6.col-6
+            img(src="img/services/4.png", alt="")
+            h3 Развал - схождения
+          .col-lg-2.col-md-2.col-sm-6.col-6
+            img(src="img/services/5.png", alt="")
+            h3 Техническое обслуживание
+  main.main
+    section.main__benefits#benefits
+      h2 Мы используем передовое оборудование
+      .container
+        .row
+          .col-lg-6.col-md-6.col-sm-6.col-6.main__benefit
+            h3 Замена масла 
+            .hidden
+              h4 Замена масла в АКПП
+              p Замена масла в автоматической коробке перемены передач (АКПП) выполняется на аппарате HESHBON.
+          .col-lg-6.col-md-6.col-sm-6.col-6.main__benefit
+            h3 Замена жидкости в гидроусилителе руля
+            .hidden
+              h4 Замена жидкости в гидроусилителе руля
+              p Замена жидкости в гидроусилителе руля выполняется в соответствии с рекомендациями завода-производителя при помощи аппарата "Темп SL-120".
+          .col-lg-6.col-md-6.col-sm-6.col-6.main__benefit
+            h3 Замена антифриза
+            .hidden
+              h4 Замена антифриза
+              p Замена антифриза выполняется в соответствии с рекомендациями завода-производителя при помощи аппарата IMPACT.
+          .col-lg-6.col-md-6.col-sm-6.col-6.main__benefit
+            h3 Проточка тормозного диска
+            .hidden
+              h4 Проточка тормозного диска
+              p Проточка тормозного диска выполняется на стенде PRO-CUT 9.0. PRO-CUT - это компьютерный автомат для восстановления заводской геометрии вращения тормозного диска на ступице автомобиля.
+          .col-lg-12.col-md-12.main__benefit
+            h3 Регулировка «Развал–схождения»
+            .hidden
+              h4 Регулировка «Развал–схождения»
+              p Регулировка «Развал–схождения» выполняется на стенде HUNTER.
+    section.main__wating-room
+      h2 Зал ожидания
+      .container
+        .row
+          .col-lg-6.col-md-6
+            img(src="img/wating_room.jpg", alt="")
+          .col-lg-6.col-md-6
+            p Пока Ваш автомобиль находится на обслуживании, вы можете скоротать время в уютной комнате ожидания.
+            p Для Вас всегда: горячий чай, кофе, телевизор, бесплатный Wi-Fi
+            p  Если Вы с ребенком - для него есть детский уголок с набором раскрасок и карандашей.
+    section.main__shop#shop
+      h2 Магазины
+      .container
+        .row
+          .col-lg-6.col-md-6.col-sm-6.col-6
+            img(src="img/shop1.jpg", alt="")
+            p В нашем Автотехцентре Вы можете не только обслужить свой автомобиль, но и приобрести различные товары для Вашего авто.
+            p У нас всегда в большом ассортименте:
+            ul
+              li Масла, смазки, охлаждающие и тормозные жидкости
+              li Аккумуляторы, клеммы
+              li Автохимия
+              li Автозапчасти
+              li Инструмент автомобильный
+              li Гайки, шпильки, болты разные
+              li Лампы, фонари, предохранители
+              li Органайзеры, огнетушители, знаки аварийной остановки
+              li Датчики давления в шинах для легковых и грузовых автомобилей
+              li Фильтры масляные, воздушные и топливные
+              li Чехлы, ковры, оплетки на руль
+            p Принимаем заказы на поставку запчастей
+            address ул. Набережная реки Магаданки, 12А
+          .col-lg-6.col-md-6.col-sm-6.col-6
+            img(src="img/shop2.jpg", alt="")
+            p В нашем Автотехцентре Вы можете не только обслужить свой автомобиль, но и приобрести различные товары для Вашего авто.
+            p У нас всегда в большом ассортименте:
+            ul
+              li Масла, смазки, охлаждающие и тормозные жидкости
+              li Аккумуляторы, клеммы
+              li Автохимия
+              li Автозапчасти
+              li Инструмент автомобильный и строительный
+              li Гайки, шпильки, болты разные
+              li Лампы, фонари, предохранители
+              li Органайзеры, огнетушители, знаки аварийной остановки
+              li Датчики давления в шинах для легковых и грузовых автомобилей
+              li Фильтры масляные, воздушные и топливные
+              li Ковры, оплетки на руль
+            p Принимаем заказы на поставку запчастей
+            address ул. Кольцевая, 30
+    section.main__stuff#stuff
+      h2 Сотрудники
+      .container
+        .owl-wrap
+          .arrow-w.arrow-w-next#arrow-w-next-stuff
+          .arrow-w.arrow-w-prev#arrow-w-prev-stuff
+          .owl-carousel#stuff-slider
+            .item
+              img(src="img/stuff/gorelov.jpg", alt="")
+              h3 Николай Горелов
+              p Автомеханик опыт работы более 8 лет
+            .item
+              img(src="img/stuff/krainichenko.jpg", alt="")
+              h3 Андрей Крайниченко
+              p Автомеханик опыт работы более 7 лет
+            .item
+              img(src="img/stuff/kuzmin.jpg", alt="")
+              h3 Артем Кузьмин
+              p Продавец-консультант  опыт работы более 1 года
+            .item
+              img(src="img/stuff/pugachev.jpg", alt="")
+              h3 Сергей Пугачев
+              p Продавец-консультант  опыт работы более 6 лет
+            .item
+              img(src="img/stuff/rukovoditel.jpg", alt="")
+              h3 Сергей Утемов
+              p Руководитель
+            .item
+              img(src="img/stuff/sartakov.jpg", alt="")
+              h3 Максим Сартаков
+              p Автомеханик опыт работы более 8 лет
+            .item
+              img(src="img/stuff/shaheev.jpg", alt="")
+              h3 Рамиль Шайхеев
+              p Мастер – приемщик опыт работы более 5 лет
+            .item
+              img(src="img/stuff/sklyarov.jpg", alt="")
+              h3 Михаил Скляров
+              p Автомеханик опыт работы более 15 лет
+            .item
+              img(src="img/stuff/sorokachuk.jpg", alt="")
+              h3 Алексей Сорокачук
+              p Продавец-консультант опыт работы более 4 лет
+            .item
+              img(src="img/stuff/yanovskii.jpg", alt="")
+              h3 Александр Яновский
+              p Автомеханик опыт работы более 4 лет
+    .section.main__feedback#feedback
+      h2 Отзывы
+      .container
+        .owl-wrap
+          .arrow-w.arrow-w-next#arrow-w-next-fb
+          .arrow-w.arrow-w-prev#arrow-w-prev-fb
+          .owl-carousel#fb-slider
+            .item
+              .main__feedback-item-top
+                .main__feedback-item-img
+                  img(src="img/feedback/1.jpg", alt="")
+                .main__feedback-item-desc
+                  h3 Андрей Ростков
+                  P Работают быстро и на совесть, никаких претензий к мастерам нет, все отлично.
+              .main__feedback-item-bottom
+                .main__feedback-item-img
+                  img(src="img/feedback/2.jpg", alt="")
+                .main__feedback-item-desc
+                  h3 Максим Сергеев
+                  P Все понравилось, все качественно и быстро. Рекомендую!
+            .item
+              .main__feedback-item-top
+                .main__feedback-item-img
+                  img(src="img/feedback/3.jpg", alt="")
+                .main__feedback-item-desc
+                  h3 Дмитрий Васильев
+                  P Все очень понравилось, сделали свою работу быстро и качественно, обязательно посещу этот автосервис в будущем, когда возникнет необходимость.
+              .main__feedback-item-bottom
+                .main__feedback-item-img
+                  img(src="img/feedback/4.jpg", alt="")
+                .main__feedback-item-desc
+                  h3 Вита Медведева
+                  P Помогли быстро и качественно, никаких претензий к работе сервиса не имею.
+  footer.footer
+    section.footer__contacts
+      #map
+      .footer__contacts--content#contacts
+        h2 Контакты
+        p.subtitle О компании
+        p На сегодняшний день «Автосервис Верста» - это один из самых известных брендов среди автосервисов Магадана. Компания была основана более 15 лет назад и сегодня состоит из 2 станций технического обслуживания, а так же магазина автозапчастей.
+        p Наши сотрудники имеют профильное образование и регулярно повышают квалификацию.  За эти годы мы по праву заслужили доверие автовладельцев Магадана. 
+        p.work-space Понедельник - Пятница <strong>10:00 - 19:00</strong><br> Суббота <strong>10:00 - 18:00</strong><br> Воскресенье выходной
+        p.phone 
+          a(href="tel:84132617300") 61 73 00
+        address ул. Набережная реки Магаданки, 12А
+        address ул. Кольцевая, 30
+    section.footer__bottom
+      .container
+        .row.justify-content-between.align-items-center
+          .col-lg-3.col-md-3
+            img(src="img/logo.png", alt="")
+          .col-lg-3.col-md-3.footer-social
+            a(href="#")
+            a(href="#")
+            a(href="#")
+          .col-lg-3.col-md-3.footer-year
+            p 2018
+  section.popup.mfp-hide#popup-versta1
+    img(src="img/logo.png", alt="")
+    h3 Диагностика автомобиля
+    .text-wrap
+      p Предлагаем автолюбителям пройти БЕСПЛАТНУЮ ДИАГНОСТИКУ автомобиля по 21 пункту. Сервисные специалисты проведут проверку систем и агрегатов, начиная от лампочек освещения до уровня износа тормозных колодок. И все это совершенно БЕСПЛАТНО. Вы получаете «Диагностический лист» с результатами проверки Вашего автомобиля и рекомендациями от специалиста.
+      p Срок проведения акции: с 10.06.18 по 31.06.18. В один день по акции принимаем не более 5 автомобилей
+      p Для того, чтобы принять участие в акции, позвоните нам прямо сейчас по телефону 
+        a(href="tel:84132617300") 61-73-00 
+        | и запишитесь на удобное для Вас время.
+    a.btn.popup-close(href="#") Закрыть
+  section.popup.mfp-hide#popup-versta2
+    img(src="img/logo.png", alt="")
+    h3 Замена антифриза
+    .text-wrap
+      p Предлагаем БЕСПЛАТНУЮ ЗАМЕНУ антифриза. Вы платите только за сам антифриз. 
+      p Срок проведения акции: с 10.06.18 по 31.06.18. В один день по акции принимаем не более 5 автомобилей.
+      p Для того, чтобы принять участие в акции, позвоните нам прямо сейчас по телефону 
+        a(href="tel:84132617300") 61-73-00 
+        | и запишитесь на удобное для Вас время.
+    a.btn.popup-close(href="#") Закрыть
+  section.popup.mfp-hide#popup-versta3
+    img(src="img/logo.png", alt="")
+    h3 Замена масла в ДВС
+    .text-wrap
+      p Предлагаем БЕСПЛАТНУЮ ЗАМЕНУ масла. Вы платите только за само масло или привозите свое. Также бесплатно дадим рекомендации о том, когда следует заменить масло повторно, какой маркой лучше воспользоваться, исходя из сезонных требований, марки автомобиля и особенностей его эксплуатации.  
+      p Срок проведения акции: с 10.06.18 по 31.06.18. В один день принимаем не более 5 автомобилей.
+      p Для того, чтобы принять участие в акции, позвоните нам прямо сейчас по телефону 
+        a(href="tel:84132617300") 61-73-00 
+        | и запишитесь на удобное для Вас время.
+    a.btn.popup-close(href="#") Закрыть
+  section.popup.mfp-hide#popup-versta4
+    img(src="img/logo.png", alt="")
+    h3 Замена проверка развал-схождения
+    .text-wrap
+      p Предлагаем автолюбителям пройти БЕСПЛАТНУЮ ПРОВЕРКУ «Развал-схождения». 
+      p Срок проведения акции: с 10.06.18 по 31.06.18. В один день принимаем не более 5 автомобилей.
+      p Для того, чтобы принять участие в акции, позвоните нам прямо сейчас по телефону 
+        a(href="tel:84132617300") 61-73-00 
+        | и запишитесь на удобное для Вас время.
+    a.btn.popup-close(href="#") Закрыть
+  section.popup.mfp-hide#popup-versta5
+    img(src="img/logo.png", alt="")
+    h3 Счастилвые часы
+    .text-wrap
+      p Клиенту, сдавшему машину в автотехцентр с понедельника по четверг с 12:00 до 15:00, предоставляется скидка 15% на ремонтные работы.
+      p Для того, чтобы принять участие в акции, позвоните нам прямо сейчас по телефону 
+        a(href="tel:84132617300") 61-73-00 
+        | и запишитесь на удобное для Вас время.
+    a.btn.popup-close(href="#") Закрыть
+  section.popup.mfp-hide#popup-header
+    img(src="img/logo.png", alt="")
+    h3 Счастливые часы на ремонт
+    p Для того, чтобы принять участие в акции, позвоните нам прямо сейчас по телефону 
+      a(href="tel:84132617300") 61-73-00 
+      | и запишитесь на удобное для Вас время.
+    a.btn.popup-close(href="#") Закрыть
+  section.popup.mfp-hide#popup-promotion
+    img(src="img/logo.png", alt="")
+    h3 Скидка 10% на все услуги
+    p Если вы подпишитесь на любой наш аккаунт
+    .popup-social
+      a(href="#") versta49
+      a(href="#") versta49
+      a(href="#") versta49
+    a.btn.popup-close(href="#") Закрыть
