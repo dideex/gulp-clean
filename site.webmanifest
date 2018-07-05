@@ -3,12 +3,12 @@
     "short_name": "Title",
     "icons": [
         {
-            "src": "img/favicon.ico",
+            "src": "img/favicon/favicon192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "img/favicon.ico",
+            "src": "img/favicon/favicon256x256.png",
             "sizes": "256x256",
             "type": "image/png"
         }
