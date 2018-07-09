@@ -10750,7 +10750,8 @@ a.btn {
 h1 {
   font-size: 7.85rem;
   font-weight: 300;
-  line-height: 1.02; }
+  line-height: 1.02;
+  font-family: "proxima"; }
   h1 strong {
     font-weight: 900; }
 

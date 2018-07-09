@@ -134,6 +134,16 @@ gulp.task('scripts', cb =>
     .pipe(browser.reload({stream: true})),
 )
 
+
+
+gulp.task('injectFonts', function(done) {
+  gulp
+    .src('js/injectFonts.js')
+    .pipe(uglify())
+    .pipe(concat('injectFonts.min.js'))
+    .pipe(gulp.dest('js'))
+})
+
 gulp.task('sass:stream', function() {
   return sassruby('sass', {sourcemap: true})
     .on('error', function(err) {
