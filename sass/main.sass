@@ -27,6 +27,10 @@ $font-gray: #959595
 $font-dark: #707070
 
 //_____________ SETTINGS
+.corners
+	width: 500px
+	height: 300px
+	@include beveled-corners(#3d8, 25px)
 .background
 	@include checkerboard(90px, tan)
 	height: 50vh

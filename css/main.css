@@ -456,6 +456,15 @@ img.mfp-img {
   src: url("../fonts/fontawesome-webfont.eot");
   src: url("../fonts/fontawesome-webfont.eot") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2") format("woff2"), url("../fonts/fontawesome-webfont.woff") format("woff"), url("../fonts/fontawesome-webfont.ttf") format("truetype"), url("../fonts/fontawesome-webfont.svg#fontawesome-webfont") format("svg"); }
 
+.corners {
+  width: 500px;
+  height: 300px;
+  background: #3d8;
+  background: -webkit-linear-gradient(315deg, transparent 25px, #3d8 0) top left, -webkit-linear-gradient(225deg, transparent 25px, #3d8 0) top right, -webkit-linear-gradient(135deg, transparent 25px, #3d8 0) bottom right, -webkit-linear-gradient(45deg, transparent 25px, #3d8 0) bottom left;
+  background: linear-gradient(135deg, transparent 25px, #3d8 0) top left, linear-gradient(225deg, transparent 25px, #3d8 0) top right, linear-gradient(-45deg, transparent 25px, #3d8 0) bottom right, linear-gradient(45deg, transparent 25px, #3d8 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat; }
+
 .background {
   background: tan;
   background-image: -webkit-linear-gradient(45deg, rgba(0, 0, 0, 0.25) 25%, transparent 0, transparent 75%, rgba(0, 0, 0, 0.25) 25%), -webkit-linear-gradient(45deg, rgba(0, 0, 0, 0.25) 25%, transparent 0, transparent 75%, rgba(0, 0, 0, 0.25) 25%);
