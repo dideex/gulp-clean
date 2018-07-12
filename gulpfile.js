@@ -21,6 +21,7 @@ const gulp = require('gulp'),
   kraken = require('gulp-kraken'),
   ts = require('gulp-typescript'),
   realFavicon = require ('gulp-real-favicon'),
+  critical = require ('critical'),
   sourcemaps = require('gulp-sourcemaps')
 
 gulp.task('libs:js', function() {
@@ -341,3 +342,15 @@ gulp.task('favicon', function(done) {
 		done();
 	});
 });
+
+gulp.task('critical', cb =>{
+  critical.generate({
+    inline: true,
+    base: './',
+    src: 'index.html',
+    dest: 'index-critical.html',
+    minify: true,
+    width: 1300,
+    height: 900
+  })}
+)
