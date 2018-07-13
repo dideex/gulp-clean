@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="vk.com/didex">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>title</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#da532c">
+    <link rel="manifest" href="site.webmanifest">
+    <style>
+      body{min-width:320px;position:relative;line-height:1.75;overflow-x:hidden;opacity:1;font-weight:400;overflow-scrolling:touch;margin:0}a{color:inherit;text-decoration:none;background-color:transparent}h1{margin:0}legend{border:0;padding:0}.background{background:tan;background-image:-webkit-linear-gradient(45deg,rgba(0,0,0,.25) 25%,transparent 0,transparent 75%,rgba(0,0,0,.25) 25%),-webkit-linear-gradient(45deg,rgba(0,0,0,.25) 25%,transparent 0,transparent 75%,rgba(0,0,0,.25) 25%);background-image:linear-gradient(45deg,rgba(0,0,0,.25) 25%,transparent 0,transparent 75%,rgba(0,0,0,.25) 25%),linear-gradient(45deg,rgba(0,0,0,.25) 25%,transparent 0,transparent 75%,rgba(0,0,0,.25) 25%);background-position:0 0,90px 90px;background-size:180px 180px;height:50vh}h1{padding:3rem 1rem 2rem 4rem}legend{display:inline-block;width:50px;height:50px;background-color:#f0f;-webkit-border-radius:50%;border-radius:50%;line-height:48px;text-align:center}html{font-size:-webkit-calc(14px + (18 - 14) * (100vw - 320px)/ (1800 - 320));font-size:calc(14px + (18 - 14) * (100vw - 320px)/ (1800 - 320))}body{font-family:Raleway;color:#363636}.container{max-width:1200px}@media screen and (max-width:768px){.container{max-width:800px}}@media screen and (max-width:576px){.container{max-width:320px}}a.btn{font-weight:700;font-size:1rem;text-transform:uppercase;color:#e54911;border:2px solid #e54911;padding:6px 60px 8px 60px;-webkit-border-radius:4px;border-radius:4px}
+    </style>
+    <link rel="preload" href="css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/main.css"></noscript>
+    <script>!function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);</script>
+    <script async defer>!function(){"use strict";function e(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent&&e.attachEvent("on"+t,n)}function t(e){return window.localStorage&&localStorage.font_css_cache&&localStorage.font_css_cache_file===e}function n(){if(window.localStorage&&window.XMLHttpRequest)if(t(o))c(localStorage.font_css_cache);else{var e=new XMLHttpRequest;e.open("GET",o,!0),e.onreadystatechange=function(){4===e.readyState&&(c(e.responseText),localStorage.font_css_cache=e.responseText,localStorage.font_css_cache_file=o)},e.send()}else{var n=document.createElement("link");n.href=o,n.rel="stylesheet",n.type="text/css",document.getElementsByTagName("head")[0].appendChild(n),document.cookie="font_css_cache"}}function c(e){var t=document.createElement("style");t.setAttribute("type","text/css"),t.styleSheet?t.styleSheet.cssText=e:t.innerHTML=e,document.getElementsByTagName("head")[0].appendChild(t)}var o="./css/fonts.css";window.localStorage&&localStorage.font_css_cache||document.cookie.indexOf("font_css_cache")>-1?n():e(window,"load",n)}();</script>
+  </head>
+  <body><a class="btn-floating btn-large waves-effect waves-light red" href="#" id="test">test</a><a class="waves-effect btn" href="#" id="test">test</a>
+    <legend>test</legend>
+    <h1>Padding test</h1>
+    <div class="container">
+      <div class="background"></div>
+    </div>
+    <div class="corners"></div>
+    <script src="js/scripts.js" defer></script>
+  </body>
+</html>
