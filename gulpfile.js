@@ -265,6 +265,8 @@ gulp.task('build:noimg', () => {
 
 gulp.task('build', ['imagemin', 'favicon', 'critical'], function () {
   gulp.src('mail.php').pipe(gulp.dest('dist'))
+  gulp.src('site.webmanifest').pipe(gulp.dest('dist'))
+  gulp.src('browserconfig.xml').pipe(gulp.dest('dist'))
   gulp
     .src('css/**/*.css')
     .pipe(csso())
