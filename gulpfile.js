@@ -255,9 +255,6 @@ gulp.task('build:noimg', () => {
     .pipe(uglify())
     .pipe(gulp.dest('dist/js'))
   gulp
-    .src('*.html')
-    .pipe(gulp.dest('dist'))
-  gulp
     .src('index-critical.html')
     .pipe(rename('index.html'))
     .pipe(gulp.dest('dist'))
