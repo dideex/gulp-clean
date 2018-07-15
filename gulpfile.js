@@ -1,28 +1,34 @@
 'use strict'
 const gulp = require('gulp'),
-  sass = require('gulp-sass'),
-  concat = require('gulp-concat'),
-  csso = require('gulp-csso'),
-  // gulpcopy = require("gulp-copy"),
-  image = require('gulp-imagemin'),
-  uglify = require('gulp-uglifyjs'),
-  // htmlmin = require("gulp-htmlmin"),
-  autoprx = require('gulp-autoprefixer'),
-  browser = require('browser-sync'),
-  // remember = require("gulp-remember"),
+// gulpcopy = require("gulp-copy"),
+// htmlmin = require("gulp-htmlmin"),
+// remember = require("gulp-remember"),
+// debug = require("gulp-debug"),
   cached = require('gulp-cached'),
-  // debug = require("gulp-debug"),
   newer = require('gulp-newer'),
   notify = require('gulp-notify'),
   plumber = require('gulp-plumber'),
-  babel = require('gulp-babel'),
-  pug = require('gulp-pug'),
+  concat = require('gulp-concat'),
   rename = require("gulp-rename"),
-  kraken = require('gulp-kraken'),
-  ts = require('gulp-typescript'),
-  realFavicon = require('gulp-real-favicon'),
+  browser = require('browser-sync'),
+  sourcemaps = require('gulp-sourcemaps'),
+  // CSS
+  sass = require('gulp-sass'),
+  csso = require('gulp-csso'),
+  autoprx = require('gulp-autoprefixer'),
   critical = require('critical'),
-  sourcemaps = require('gulp-sourcemaps')
+  // IMG OPTIMIZATION
+  image = require('gulp-imagemin'),
+  kraken = require('gulp-kraken'),
+  guetzli = require('imagemin-guetzli'),
+  // JS
+  uglify = require('gulp-uglifyjs'),
+  ts = require('gulp-typescript'),
+  babel = require('gulp-babel'),
+  // HTML
+  pug = require('gulp-pug'),
+  // FAVICON
+  realFavicon = require('gulp-real-favicon')
 
 gulp.task('libs:js', function () {
   return gulp
@@ -353,3 +359,10 @@ gulp.task('critical', function () {
     height: 900
   })
 })
+
+gulp.task('guetzli', () =>
+    gulp.src('dist/img/*')
+        .pipe(cached('guetzli'))
+        .pipe(image([guetzli({quality: 85})]))
+        .pipe(gulp.dest('dist/img'))
+);
