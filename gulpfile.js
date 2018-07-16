@@ -1,15 +1,15 @@
 'use strict'
 const gulp = require('gulp'),
-// gulpcopy = require("gulp-copy"),
-// htmlmin = require("gulp-htmlmin"),
-// remember = require("gulp-remember"),
-// debug = require("gulp-debug"),
+  // gulpcopy = require("gulp-copy"),
+  // htmlmin = require("gulp-htmlmin"),
+  // remember = require("gulp-remember"),
+  // debug = require("gulp-debug"),
   cached = require('gulp-cached'),
   newer = require('gulp-newer'),
   notify = require('gulp-notify'),
   plumber = require('gulp-plumber'),
   concat = require('gulp-concat'),
-  rename = require("gulp-rename"),
+  rename = require('gulp-rename'),
   browser = require('browser-sync'),
   sourcemaps = require('gulp-sourcemaps'),
   // CSS
@@ -21,6 +21,7 @@ const gulp = require('gulp'),
   image = require('gulp-imagemin'),
   kraken = require('gulp-kraken'),
   guetzli = require('imagemin-guetzli'),
+  tinify = require('./task/tinify'),
   // JS
   uglify = require('gulp-uglifyjs'),
   ts = require('gulp-typescript'),
@@ -30,7 +31,7 @@ const gulp = require('gulp'),
   // FAVICON
   realFavicon = require('gulp-real-favicon')
 
-gulp.task('libs:js', function () {
+gulp.task('libs:js', function() {
   return gulp
     .src([
       'js/libs/jquery.js',
@@ -50,7 +51,7 @@ gulp.task('libs:js', function () {
     .pipe(gulp.dest('js/src'))
 })
 
-gulp.task('libs:css', ['sass'], function () {
+gulp.task('libs:css', ['sass'], function() {
   return gulp
     .src([
       // "lib/magnific-popup/dist/magnific-popup.css",
@@ -65,94 +66,100 @@ gulp.task('libs:css', ['sass'], function () {
     .pipe(gulp.dest('css'))
 })
 
-gulp.task('libs', ['libs:css', 'libs:js'], function () {
+gulp.task('libs', ['libs:css', 'libs:js'], function() {
   return
 })
 
-gulp.task('sass', function () {
+gulp.task('sass', function() {
   return (
     gulp
-    .src('sass/*.sass')
-    .pipe(
-      plumber({
-        errorHandler: notify.onError(err => ({
-          title: 'Sass',
-          message: err.message,
-        })),
-      }),
-    )
-    // .pipe(cached("sass"))
-    .pipe(sourcemaps.init())
-    .pipe(sass())
-    .pipe(autoprx(['last 15 versions', '> 1%'], {
-      cascade: true
-    }))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('css/'))
-    .pipe(browser.reload({
-      stream: true
-    }))
+      .src('sass/*.sass')
+      .pipe(
+        plumber({
+          errorHandler: notify.onError(err => ({
+            title: 'Sass',
+            message: err.message,
+          })),
+        }),
+      )
+      // .pipe(cached("sass"))
+      .pipe(sourcemaps.init())
+      .pipe(sass())
+      .pipe(
+        autoprx(['last 15 versions', '> 1%'], {
+          cascade: true,
+        }),
+      )
+      .pipe(sourcemaps.write('.'))
+      .pipe(gulp.dest('css/'))
+      .pipe(
+        browser.reload({
+          stream: true,
+        }),
+      )
   )
 })
 
 gulp.task('ts', cb =>
   gulp
-  .src('ts/**/*.ts')
-  .pipe(
-    plumber({
-      errorHandler: notify.onError(err => ({
-        title: 'Ts',
-        message: err.message,
-      })),
-    }),
-  )
-  .pipe(sourcemaps.init())
-  .pipe(cached('ts'))
-  .pipe(ts({
-    noImplicitAny: true,
-    outFile: 'main.ts.js'
-  }))
-  .pipe(sourcemaps.write('.'))
-  .pipe(gulp.dest('js/src')),
+    .src('ts/**/*.ts')
+    .pipe(
+      plumber({
+        errorHandler: notify.onError(err => ({
+          title: 'Ts',
+          message: err.message,
+        })),
+      }),
+    )
+    .pipe(sourcemaps.init())
+    .pipe(cached('ts'))
+    .pipe(
+      ts({
+        noImplicitAny: true,
+        outFile: 'main.ts.js',
+      }),
+    )
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('js/src')),
 )
 
 gulp.task(
   'js',
   cb =>
-  gulp
-  .src('js/src/main.js')
-  .pipe(
-    plumber({
-      errorHandler: notify.onError(err => ({
-        title: 'Js',
-        message: err.message,
-      })),
-    }),
-  )
-  .pipe(cached('js'))
-  .pipe(sourcemaps.init())
-  .pipe(babel())
-  .pipe(concat('main.min.js'))
-  .pipe(sourcemaps.write('.'))
-  .pipe(gulp.dest('js/src')),
+    gulp
+      .src('js/src/main.js')
+      .pipe(
+        plumber({
+          errorHandler: notify.onError(err => ({
+            title: 'Js',
+            message: err.message,
+          })),
+        }),
+      )
+      .pipe(cached('js'))
+      .pipe(sourcemaps.init())
+      .pipe(babel())
+      .pipe(concat('main.min.js'))
+      .pipe(sourcemaps.write('.'))
+      .pipe(gulp.dest('js/src')),
   // .pipe(browser.reload({ stream: true }))
 )
 
 gulp.task('scripts', cb =>
   gulp
-  .src(['js/src/libs.js', 'js/src/main.min.js', 'js/src/main.ts.js'])
-  .pipe(sourcemaps.init())
-  .pipe(concat('scripts.js'))
-  .pipe(sourcemaps.write('.'))
-  .pipe(gulp.dest('js'))
-  .pipe(browser.reload({
-    stream: true
-  })),
+    .src(['js/src/libs.js', 'js/src/main.min.js', 'js/src/main.ts.js'])
+    .pipe(sourcemaps.init())
+    .pipe(concat('scripts.js'))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('js'))
+    .pipe(
+      browser.reload({
+        stream: true,
+      }),
+    ),
 )
 
-
-
-gulp.task('injectFonts', function (done) {
+gulp.task('injectFonts', function(done) {
   gulp
     .src('js/injectFonts.js')
     .pipe(uglify())
@@ -160,11 +167,11 @@ gulp.task('injectFonts', function (done) {
     .pipe(gulp.dest('js'))
 })
 
-gulp.task('sass:stream', function () {
+gulp.task('sass:stream', function() {
   return sassruby('sass', {
-      sourcemap: true
-    })
-    .on('error', function (err) {
+    sourcemap: true,
+  })
+    .on('error', function(err) {
       console.error('Error!', err.message)
     })
     .pipe(
@@ -173,12 +180,14 @@ gulp.task('sass:stream', function () {
         sourceRoot: 'sass',
       }),
     )
-    .pipe(browserSync.stream({
-      match: '**/*.css'
-    }))
+    .pipe(
+      browserSync.stream({
+        match: '**/*.css',
+      }),
+    )
 })
 
-gulp.task('browser', function () {
+gulp.task('browser', function() {
   browser({
     server: {
       baseDir: './',
@@ -187,7 +196,7 @@ gulp.task('browser', function () {
   })
 })
 
-gulp.task('browser:dist', function () {
+gulp.task('browser:dist', function() {
   browser({
     server: {
       baseDir: 'dist',
@@ -198,39 +207,38 @@ gulp.task('browser:dist', function () {
 
 gulp.task('pug', cb =>
   gulp
-  .src('index.pug')
-  .pipe(
-    plumber({
-      errorHandler: notify.onError(err => ({
-        title: 'Pug',
-        message: err.message,
-      })),
-    }),
-  )
-  // .pipe(cached("pug"))
-  .pipe(pug({
-    pretty: true
-  }))
-  .pipe(gulp.dest('./')),
+    .src('index.pug')
+    .pipe(
+      plumber({
+        errorHandler: notify.onError(err => ({
+          title: 'Pug',
+          message: err.message,
+        })),
+      }),
+    )
+    // .pipe(cached("pug"))
+    .pipe(
+      pug({
+        pretty: true,
+      }),
+    )
+    .pipe(gulp.dest('./')),
 )
 
-gulp.task(
-  'watch', ['browser', 'pug', 'sass', 'js', 'ts', 'scripts'],
-  function () {
-    gulp.watch('sass/**/*.sass', ['sass'])
-    gulp.watch('sass/**/*.scss', ['sass'])
-    gulp.watch('*.html', browser.reload)
-    gulp.watch('js/**/*.js', ['js', 'scripts'])
-    gulp.watch('ts/**/*.ts', ['ts', 'scripts'])
-    gulp.watch('*.pug', ['pug'])
-  },
-)
+gulp.task('watch', ['browser', 'pug', 'sass', 'js', 'ts', 'scripts'], function() {
+  gulp.watch('sass/**/*.sass', ['sass'])
+  gulp.watch('sass/**/*.scss', ['sass'])
+  gulp.watch('*.html', browser.reload)
+  gulp.watch('js/**/*.js', ['js', 'scripts'])
+  gulp.watch('ts/**/*.ts', ['ts', 'scripts'])
+  gulp.watch('*.pug', ['pug'])
+})
 
-gulp.task('watch:dist', ['build', 'browser:dist'], function () {
+gulp.task('watch:dist', ['build', 'browser:dist'], function() {
   gulp.watch('dist/*.html', browser.reload)
 })
 
-gulp.task('kraken', function () {
+gulp.task('kraken', function() {
   var config = {}
   try {
     config = require('./design/kraken.json')
@@ -242,7 +250,7 @@ gulp.task('kraken', function () {
   gulp.src('dist/img/**/*').pipe(kraken(config))
 })
 
-gulp.task('imagemin', function () {
+gulp.task('imagemin', function() {
   gulp
     .src('img/**/*')
     .pipe(newer('dist/img'))
@@ -266,7 +274,7 @@ gulp.task('build:noimg', () => {
     .pipe(gulp.dest('dist'))
 })
 
-gulp.task('build', ['imagemin', 'favicon', 'critical'], function () {
+gulp.task('build', ['imagemin', 'favicon', 'critical'], function() {
   gulp.src('mail.php').pipe(gulp.dest('dist'))
   gulp.src('site.webmanifest').pipe(gulp.dest('dist'))
   gulp.src('browserconfig.xml').pipe(gulp.dest('dist'))
@@ -286,69 +294,72 @@ gulp.task('build', ['imagemin', 'favicon', 'critical'], function () {
 })
 
 const FAVICON_DATA_FILE = 'faviconData.json'
-gulp.task('favicon', function (done) {
-  realFavicon.generateFavicon({
-    masterPicture: './img/favicon/assets/favicon.png',
-    dest: './img/favicon',
-    iconsPath: '/',
-    design: {
-      ios: {
-        pictureAspect: 'noChange',
-        assets: {
-          ios6AndPriorIcons: false,
-          ios7AndLaterIcons: false,
-          precomposedIcons: false,
-          declareOnlyDefaultIcon: true
-        }
-      },
-      desktopBrowser: {},
-      windows: {
-        pictureAspect: 'noChange',
-        backgroundColor: '#9f00a7',
-        onConflict: 'override',
-        assets: {
-          windows80Ie10Tile: false,
-          windows10Ie11EdgeTiles: {
-            small: false,
-            medium: true,
-            big: false,
-            rectangle: false
-          }
-        }
-      },
-      androidChrome: {
-        pictureAspect: 'noChange',
-        themeColor: '#ffffff',
-        manifest: {
-          display: 'standalone',
-          orientation: 'notSet',
-          onConflict: 'override',
-          declared: true
+gulp.task('favicon', function(done) {
+  realFavicon.generateFavicon(
+    {
+      masterPicture: './img/favicon/assets/favicon.png',
+      dest: './img/favicon',
+      iconsPath: '/',
+      design: {
+        ios: {
+          pictureAspect: 'noChange',
+          assets: {
+            ios6AndPriorIcons: false,
+            ios7AndLaterIcons: false,
+            precomposedIcons: false,
+            declareOnlyDefaultIcon: true,
+          },
         },
-        assets: {
-          legacyIcon: false,
-          lowResolutionIcons: false
-        }
+        desktopBrowser: {},
+        windows: {
+          pictureAspect: 'noChange',
+          backgroundColor: '#9f00a7',
+          onConflict: 'override',
+          assets: {
+            windows80Ie10Tile: false,
+            windows10Ie11EdgeTiles: {
+              small: false,
+              medium: true,
+              big: false,
+              rectangle: false,
+            },
+          },
+        },
+        androidChrome: {
+          pictureAspect: 'noChange',
+          themeColor: '#ffffff',
+          manifest: {
+            display: 'standalone',
+            orientation: 'notSet',
+            onConflict: 'override',
+            declared: true,
+          },
+          assets: {
+            legacyIcon: false,
+            lowResolutionIcons: false,
+          },
+        },
+        safariPinnedTab: {
+          pictureAspect: 'silhouette',
+          themeColor: '#5bbad5',
+        },
       },
-      safariPinnedTab: {
-        pictureAspect: 'silhouette',
-        themeColor: '#5bbad5'
-      }
+      settings: {
+        scalingAlgorithm: 'Mitchell',
+        errorOnImageTooSmall: false,
+        readmeFile: false,
+        htmlCodeFile: false,
+        usePathAsIs: false,
+      },
+      markupFile: FAVICON_DATA_FILE,
     },
-    settings: {
-      scalingAlgorithm: 'Mitchell',
-      errorOnImageTooSmall: false,
-      readmeFile: false,
-      htmlCodeFile: false,
-      usePathAsIs: false
+    function() {
+      done()
     },
-    markupFile: FAVICON_DATA_FILE
-  }, function () {
-    done();
-  });
-});
+  )
+})
 
-gulp.task('critical', function () {
+gulp.task('critical', function() {
   return critical.generate({
     inline: true,
     base: './',
@@ -356,13 +367,27 @@ gulp.task('critical', function () {
     dest: 'index-critical.html',
     minify: true,
     width: 1300,
-    height: 900
+    height: 900,
   })
 })
 
 gulp.task('guetzli', () =>
-    gulp.src('dist/img/*')
-        .pipe(cached('guetzli'))
-        .pipe(image([guetzli({quality: 85})]))
-        .pipe(gulp.dest('dist/img'))
-);
+  gulp
+    .src('dist/img/**/*.jpg')
+    .pipe(cached('guetzli'))
+    .pipe(image([guetzli({quality: 85})]))
+    .pipe(gulp.dest('dist/img')),
+)
+
+gulp.task('tinify', function() {
+  gulp
+    .src('dist/img/**/*')
+    .pipe(tinify())
+    .pipe(gulp.dest('dist/img'))
+    .on('finish', function() {
+      console.log('Booya ~.~')
+    })
+    .on('error', function(error) {
+      console.log('error', error)
+    })
+})
