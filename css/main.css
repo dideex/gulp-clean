@@ -2560,11 +2560,13 @@ legend {
     font-weight: 700; }
 
 html {
-  font-size: -webkit-calc(14px + (18 - 14) * (100vw - 320px) / (1800 - 320));
-  font-size: calc(14px + (18 - 14) * (100vw - 320px) / (1800 - 320)); }
+  font-size: -webkit-calc(7px + .25vw);
+  font-size: calc(7px + .25vw); }
 
 body {
+  font-size: 1.5rem;
   font-family: Raleway;
+  font-display: optional;
   color: #363636; }
 
 .container {
