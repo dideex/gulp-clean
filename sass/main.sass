@@ -26,6 +26,10 @@ $font-gray: #959595
 $font-dark: #707070
 
 //_____________ SETTINGS
+.line-breaks
+	span::after
+		content: '\A'
+		white-space: pre
 .background
 	@include checkerboard(90px, tan)
 	height: 50vh
