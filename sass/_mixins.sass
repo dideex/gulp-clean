@@ -44,3 +44,13 @@
   background: linear-gradient(135deg, transparent $tl, $bg 0) top left, linear-gradient(225deg, transparent $tr, $bg 0) top right, linear-gradient(-45deg, transparent $br, $bg 0) bottom right, linear-gradient(45deg, transparent $bl, $bg 0) bottom left
   background-size: 50% 50%
   background-repeat: no-repeat
+
+//Add 3d effect to the text
+@mixin text-3d($color: white, $depth: 5)
+  $shadows: ()
+  $shadow-color: $color
+  @for $i from 1 through $depth
+    $shadow-color: darken($shadow-color, 10%)
+    $shadows: append($shadows, 0 ($i * 1px) $shadow-color, comma)
+  color: $color
+  text-shadow: append($shadows, 0 ($depth * 1px) 10px black, comma)

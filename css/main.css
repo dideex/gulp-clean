@@ -2514,6 +2514,10 @@ img.mfp-img {
   src: url("../fonts/fontawesome-webfont.eot");
   src: url("../fonts/fontawesome-webfont.eot") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2") format("woff2"), url("../fonts/fontawesome-webfont.woff") format("woff"), url("../fonts/fontawesome-webfont.ttf") format("truetype"), url("../fonts/fontawesome-webfont.svg#fontawesome-webfont") format("svg"); }
 
+h1 {
+  color: tan;
+  text-shadow: 0 1px #c49c67, 0 2px #b28446, 0 3px #8e6937, 0 4px #694e29, 0 5px #44321b, 0 5px 10px black; }
+
 .line-breaks span::after {
   content: '\A';
   white-space: pre; }
